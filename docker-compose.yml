@@ -1,0 +1,39 @@
+services:
+  app:
+    build:
+      context: ./secpilot
+      target: development
+    ports:
+      - "3000:3000"
+    volumes:
+      - ./secpilot:/usr/src/app
+      - /usr/src/app/node_modules
+    environment:
+      DATABASE_URL: postgresql://secpilot:secpilot@postgres:5432/secpilot
+      REDIS_HOST: redis
+      REDIS_PORT: 6379
+    depends_on:
+      - postgres
+      - redis
+
+  postgres:
+    image: postgres:16-alpine
+    environment:
+      POSTGRES_USER: secpilot
+      POSTGRES_PASSWORD: secpilot
+      POSTGRES_DB: secpilot
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+  redis:
+    image: redis:7-alpine
+    ports:
+      - "6379:6379"
+    volumes:
+      - redis_data:/data
+
+volumes:
+  postgres_data:
+  redis_data:

@@ -1,0 +1,25 @@
+# Ignora il diario di bordo (solo uso personale)
+diario-di-bordo.md
+
+# Node.js e NestJS (ignorati a livello globale per sicurezza)
+node_modules/
+dist/
+npm-debug.log
+yarn-error.log
+.pnp
+.pnp.js
+
+# File d'ambiente (non committare mai chiavi segrete!)
+.env
+.env.test
+.env.production
+
+# Volumi Docker (nel caso un domani usassi Bind Mounts invece di Named Volumes)
+pgdata/
+redisdata/
+data/
+db/
+*.rdb
+
+# MacOS / OS specific
+.DS_Store
