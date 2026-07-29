@@ -24,4 +24,4 @@ jobs:
           format: 'table' # Mostra i risultati in una bella tabella nei log
           exit-code: '1'  # Se trova problemi critici, fa fallire (rompe) la pipeline
           severity: 'CRITICAL,HIGH' # Cerca solo vulnerabilità Alte o Critiche
-          scanners: vuln, secret, config  # Scansiona sia vulnerabilità che segreti
+          scanners: vuln, secret, misconfig  # Scansiona sia vulnerabilità che segreti
