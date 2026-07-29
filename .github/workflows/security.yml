@@ -22,7 +22,7 @@ jobs:
 
       # Step 2: Lancia Trivy (Scanner di Sicurezza Open Source)
       - name: Analisi Vulnerabilità e Segreti
-        uses: aquasecurity/trivy-action@0.28.0
+        uses: aquasecurity/trivy-action@v0.36.0
         with:
           scan-type: 'fs' # Scansiona il file system (codice sorgente e Dockerfile)
           format: 'sarif' # Output SARIF per il tab Security di GitHub
